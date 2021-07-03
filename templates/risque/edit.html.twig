@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Risque{% endblock %}
+
+{% block body %}
+    <h1>Edit Risque</h1>
+
+    {{ include('risque/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('risque_index') }}">back to list</a>
+
+    {{ include('risque/_delete_form.html.twig') }}
+{% endblock %}

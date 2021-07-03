@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Risque index{% endblock %}
+
+{% block body %}
+    <h1>Risque index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Designation</th>
+                <th>Description</th>
+                <th>Impact</th>
+                <th>Frequence</th>
+                <th>Risque_intrinseque</th>
+                <th>DMR</th>
+                <th>EvaluationDMR</th>
+                <th>RisqueResiduel</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for risque in risques %}
+            <tr>
+                <td>{{ risque.id }}</td>
+                <td>{{ risque.designation }}</td>
+                <td>{{ risque.Description }}</td>
+                <td>{{ risque.Impact }}</td>
+                <td>{{ risque.frequence }}</td>
+             {#   <td>{{ risque.RisqueIntrinseque }}</td> #}
+                <td>{{ risque.Impact }}*{{ risque.frequence }}</td>
+                <td>{{ risque.DMR }}</td>
+                <td>{{ risque.EvaluationDMR }}</td>
+                <td>{{ risque.RisqueResiduel }}</td>
+                <td>
+                    <a href="{{ path('risque_show', {'id': risque.id}) }}">show</a>
+                    <a href="{{ path('risque_edit', {'id': risque.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('risque_new') }}">Create new</a>
+{% endblock %}

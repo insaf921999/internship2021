@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Typo3 index{% endblock %}
+
+{% block body %}
+    <h1>Typo3 index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for typo3 in typo3s %}
+            <tr>
+                <td>{{ typo3.id }}</td>
+                <td>
+                    <a href="{{ path('typo3_show', {'id': typo3.id}) }}">show</a>
+                    <a href="{{ path('typo3_edit', {'id': typo3.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('typo3_new') }}">Create new</a>
+{% endblock %}

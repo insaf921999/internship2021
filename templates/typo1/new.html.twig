@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Typo1{% endblock %}
+
+{% block body %}
+    <h1>Create new Typo1</h1>
+
+    {{ include('typo1/_form.html.twig') }}
+
+    <a href="{{ path('typo1_index') }}">back to list</a>
+{% endblock %}

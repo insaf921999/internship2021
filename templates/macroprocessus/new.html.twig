@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Macroprocessus{% endblock %}
+
+{% block body %}
+    <h1>Create new Macroprocessus</h1>
+
+    {{ include('macroprocessus/_form.html.twig') }}
+
+    <a href="{{ path('macroprocessus_index') }}">back to list</a>
+{% endblock %}

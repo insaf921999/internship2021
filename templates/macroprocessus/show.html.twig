@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Macroprocessus{% endblock %}
+
+{% block body %}
+    <h1>Macroprocessus</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ macroprocessu.id }}</td>
+            </tr>
+            <tr>
+                <th>Lib_mp</th>
+                <td>{{ macroprocessu.libMp }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('macroprocessus_index') }}">back to list</a>
+
+    <a href="{{ path('macroprocessus_edit', {'id': macroprocessu.id}) }}">edit</a>
+
+    {{ include('macroprocessus/_delete_form.html.twig') }}
+{% endblock %}

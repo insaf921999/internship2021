@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Typo2 index{% endblock %}
+
+{% block body %}
+    <h1>Typo2 index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Lib_typo2</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for typo2 in typo2s %}
+            <tr>
+                <td>{{ typo2.id }}</td>
+                <td>{{ typo2.libTypo2 }}</td>
+                <td>
+                    <a href="{{ path('typo2_show', {'id': typo2.id}) }}">show</a>
+                    <a href="{{ path('typo2_edit', {'id': typo2.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('typo2_new') }}">Create new</a>
+{% endblock %}

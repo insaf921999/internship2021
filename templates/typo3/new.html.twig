@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Typo3{% endblock %}
+
+{% block body %}
+    <h1>Create new Typo3</h1>
+
+    {{ include('typo3/_form.html.twig') }}
+
+    <a href="{{ path('typo3_index') }}">back to list</a>
+{% endblock %}

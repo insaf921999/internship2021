@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Macroprocessus index{% endblock %}
+
+{% block body %}
+    <h1>Macroprocessus index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Lib_mp</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for macroprocessu in macroprocessuses %}
+            <tr>
+                <td>{{ macroprocessu.id }}</td>
+                <td>{{ macroprocessu.libMp }}</td>
+                <td>
+                    <a href="{{ path('macroprocessus_show', {'id': macroprocessu.id}) }}">show</a>
+                    <a href="{{ path('macroprocessus_edit', {'id': macroprocessu.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('macroprocessus_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Processus index{% endblock %}
+
+{% block body %}
+    <h1>Processus index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libelle Processus</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for processu in processuses %}
+            <tr>
+                <td>{{ processu.id }}</td>
+                <td>{{ processu.libP }}</td>
+                <td>
+                    <a href="{{ path('processus_show', {'id': processu.id}) }}">show</a>
+                    <a href="{{ path('processus_edit', {'id': processu.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('processus_new') }}">Create new</a>
+{% endblock %}
